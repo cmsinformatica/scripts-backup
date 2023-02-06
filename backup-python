@@ -1,0 +1,18 @@
+import shutil
+import time
+
+# Diretório a ser backupado
+source_dir = "/path/to/source/directory"
+
+# Diretório de destino do backup
+destination_dir = "/path/to/destination/directory"
+
+# Nome do arquivo de backup
+timestamp = time.strftime("%Y%m%d%H%M%S")
+backup_file = "backup-{}.zip".format(timestamp)
+
+# Executando o comando de backup
+shutil.make_archive(destination_dir + "/" + backup_file, "zip", source_dir)
+
+# Verificando se o backup foi criado com sucesso
+print("Backup criado com sucesso: {}/{}".format(destination_dir, backup_file))
