@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Diretório a ser backupado
+source_dir="/path/to/source/directory"
+
+# Diretório de destino do backup
+destination_dir="/path/to/destination/directory"
+
+# Nome do arquivo de backup
+backup_file="backup-$(date +%Y%m%d%H%M%S).tar.gz"
+
+# Executando o comando de backup
+tar -czf "$destination_dir/$backup_file" "$source_dir"
+
+# Verificando se o backup foi criado com sucesso
+if [ $? -eq 0 ]; then
+  echo "Backup criado com sucesso: $destination_dir/$backup_file"
+else
+  echo "Falha ao criar o backup"
+  exit 1
+fi
